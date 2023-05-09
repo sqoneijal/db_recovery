@@ -1,0 +1,25 @@
+{
+   "name": "db_recovery",
+   "version": "1.0.0",
+   "description": "database backup",
+   "main": "webpack.config.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sqoneijal/db_recovery.git"
+   },
+   "keywords": [
+      "db",
+      "recovey",
+      "dbbackup",
+      "dbrecovery"
+   ],
+   "author": "sqone.developer",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/sqoneijal/db_recovery/issues"
+   },
+   "homepage": "https://github.com/sqoneijal/db_recovery#readme"
+}
