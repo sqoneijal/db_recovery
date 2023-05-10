@@ -196,6 +196,10 @@ export const table_empty = (colSpan = 0) => {
    );
 };
 
+export const spinner = () => {
+   return <span className="spinner-border spinner-border-sm align-middle ms-2" />;
+};
+
 export const span_loading = () => {
    return (
       <React.Fragment>
@@ -239,4 +243,14 @@ export const option_loading = (isLoading = false) => {
 
 export const objLength = (content = {}) => {
    return Object.keys(content).length > 0 ? true : false;
+};
+
+export const serialize = (obj) => {
+   let str = [];
+   for (let p in obj) {
+      if (obj.hasOwnProperty(p)) {
+         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+      }
+   }
+   return str.join("&");
 };

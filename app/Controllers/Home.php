@@ -211,10 +211,10 @@ class Home extends BaseController {
                array_push($set_data, $row);
             }
 
-            file_put_contents(WRITEPATH.'logs/overview.json', json_encode(array_merge($set_data, [array_merge(['id' => count($savePath) + 1], $data)]), JSON_PRETTY_PRINT));
+            file_put_contents(WRITEPATH.'logs/overview.json', json_encode(array_merge($set_data, [array_merge(['id' => count($savePath) + 1, 'datetime' => date('Y-m-d H:i:s')], $data)]), JSON_PRETTY_PRINT));
             $response['set_data'] = array_merge($set_data, [$data]);
          } else {
-            file_put_contents(WRITEPATH.'logs/overview.json', '['.json_encode(array_merge(['id' => 1], $data), JSON_PRETTY_PRINT).']');
+            file_put_contents(WRITEPATH.'logs/overview.json', '['.json_encode(array_merge(['id' => 1, 'datetime' => date('Y-m-d H:i:s')], $data), JSON_PRETTY_PRINT).']');
          }
       
          $response['status'] = true;

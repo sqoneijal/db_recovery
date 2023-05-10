@@ -12,7 +12,13 @@ const Menu = ({ setButton }) => {
                {Nav.map((row, index) => {
                   return (
                      <div className={`menu-item me-0 me-lg-2 ${location.pathname === row.pathname ? "here menu-here-bg" : ""}`} key={index}>
-                        <Link to={row.pathname} className="menu-link py-3" onClick={() => setButton(false)}>
+                        <Link
+                           to={row.pathname}
+                           className="menu-link py-3"
+                           onClick={() => {
+                              setButton(false);
+                              document.title = row.label;
+                           }}>
                            <span className="menu-title">{row.label}</span>
                         </Link>
                      </div>

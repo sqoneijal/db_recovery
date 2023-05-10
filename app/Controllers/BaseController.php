@@ -24,7 +24,7 @@ abstract class BaseController extends Controller {
     *
     * @var array
     */
-   protected $helpers = ['style', 'filesystem'];
+   protected $helpers = ['style', 'filesystem', 'array', 'number'];
 
    /**
     * Be sure to declare properties for any property fetch you initialized.

@@ -41,6 +41,12 @@ $routes->group('/', function($routes) {
 
    $routes->group('database', function($routes) {
       $routes->get('/', 'Database::index');
+      $routes->get('getdata', 'Database::getData');
+      $routes->get('downloadcsvfile', 'Database::downloadCSVFile');
+      $routes->get('download', 'Database::download');
+
+      $routes->post('loadtable', 'Database::loadTable');
+      $routes->post('loadcsv', 'Database::loadCSV');
    });
 });
 

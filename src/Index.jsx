@@ -13,6 +13,7 @@ const LayoutToolbar = React.lazy(() => import("./Layout/Toolbar"));
 const LayoutFooter = React.lazy(() => import("./Layout/Footer"));
 
 import Overview from "./Page/Overview/Context";
+import Database from "./Page/Database/Context";
 
 const Index = () => {
    // array
@@ -55,6 +56,7 @@ const Index = () => {
                         <div className="post" id="kt_post">
                            <Routes>
                               <Route path="/" element={<Overview {...propsGlobal} />} loader={h.lazyLoadFile()} />
+                              <Route path="database" element={<Database {...propsGlobal} />} loader={h.lazyLoadFile()} />
                            </Routes>
                         </div>
                      </div>
