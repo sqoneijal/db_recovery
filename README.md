@@ -1,6 +1,11 @@
-# CodeIgniter 4 Framework
+# Database Backup
 
-## What is CodeIgniter?
+## Penggunaan
+
+Pastikan telah terinstall minimal php >= 8.0
+
+Jalankan perintah `npm install` untuk meng-install semua module node js
+Kemudian jalankan perintah `npm run build`
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
 More information can be found at the [official site](https://codeigniter.com).
