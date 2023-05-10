@@ -1,0 +1,12 @@
+[
+   {
+      "label": "Overview",
+      "pathname": "/",
+      "sub": false
+   },
+   {
+      "label": "Database",
+      "pathname": "/database",
+      "sub": true
+   }
+]

@@ -1,0 +1,83 @@
+@keyframes spinner-border {
+   to {
+      transform: rotate(360deg) /* rtl:ignore */;
+   }
+}
+.placeholder {
+   box-shadow: 0 2px 10px 0 rgba(33, 33, 33, 0.15);
+   border-radius: 2px;
+   position: relative;
+   overflow: hidden;
+   color: transparent;
+}
+.placeholder {
+   box-sizing: border-box;
+   position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   padding: 10px;
+   overflow: hidden;
+   direction: ltr;
+   border: 1px solid #e6e6e6;
+   border-radius: 2px;
+   flex: 0 0 100%;
+   width: 100%;
+   background-color: #ced4da !important;
+}
+.placeholder::before {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 50%;
+   z-index: 1;
+   width: 500%;
+   margin-left: -250%;
+   pointer-events: none;
+   content: " ";
+   background: linear-gradient(to right, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 54%) 50% 50%;
+   -webkit-animation: ph-animation 0.8s linear infinite;
+   animation: ph-animation 0.8s linear infinite;
+}
+@-webkit-keyframes ph-animation {
+   0% {
+      transform: translate3d(-30%, 0, 0);
+   }
+   100% {
+      transform: translate3d(30%, 0, 0);
+   }
+}
+
+@keyframes ph-animation {
+   0% {
+      transform: translate3d(-30%, 0, 0);
+   }
+   100% {
+      transform: translate3d(30%, 0, 0);
+   }
+}
+table {
+   width: 100% !important;
+}
+div.dataTables_length + div.dataTables_info {
+   margin-left: 1rem;
+}
+div.dataTables_wrapper div.dataTables_info {
+   display: flex;
+   flex-direction: column;
+   font-weight: 500;
+   color: var(--bs-gray-700);
+   padding: 1rem 0;
+}
+.offcanvas-header {
+   --bs-card-border-color: #2b2b40;
+   align-items: stretch !important;
+   flex-wrap: wrap;
+   min-height: 70px;
+   border-bottom: 1px solid var(--bs-card-border-color);
+}
+.offcanvas-footer {
+   --bs-card-border-color: #2b2b40;
+   padding: var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x);
+   border-top: 1px solid var(--bs-card-border-color);
+}

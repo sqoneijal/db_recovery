@@ -30,6 +30,19 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->group('/', function($routes) {
+   $routes->get('getdata', 'Home::getData');
+   $routes->get('resetdatabase', 'Home::resetDatabase');
+
+   $routes->post('submit', 'Home::submit');
+   $routes->post('connecttodb', 'Home::connectToDB');
+   $routes->post('countdatarows', 'Home::countDataRows');
+   $routes->post('handlebackup', 'Home::handleBackup');
+
+   $routes->group('database', function($routes) {
+      $routes->get('/', 'Database::index');
+   });
+});
 
 /*
  * --------------------------------------------------------------------
