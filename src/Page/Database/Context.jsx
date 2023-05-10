@@ -11,6 +11,7 @@ const Context = ({ setPosition }) => {
 
    // string
    const [total_items, setTotal_items] = useState(0);
+   const [searchTable, setSearchTable] = useState("");
 
    useEffect(() => {
       setPosition([document.title]);
@@ -38,7 +39,7 @@ const Context = ({ setPosition }) => {
       return () => {};
    }, []);
 
-   const propsLists = { isLoading, setIsLoading, listDatabase, total_items, setTotal_items };
+   const propsLists = { isLoading, setIsLoading, listDatabase, total_items, setTotal_items, searchTable, setSearchTable };
 
    return (
       <React.Fragment>

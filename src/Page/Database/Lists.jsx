@@ -7,7 +7,7 @@ const ListsDatabase = React.lazy(() => import("./ListsDatabase"));
 const ListsTable = React.lazy(() => import("./ListsTable"));
 const ListsCSV = React.lazy(() => import("./ListsCSV"));
 
-const Lists = ({ isLoading, listDatabase, total_items, setTotal_items }) => {
+const Lists = ({ isLoading, listDatabase, total_items, setTotal_items, searchTable, setSearchTable }) => {
    // array
    const [breadCrumb, setBreadCrumb] = useState([]);
    const [daftarTable, setDaftarTable] = useState([]);
@@ -69,15 +69,16 @@ const Lists = ({ isLoading, listDatabase, total_items, setTotal_items }) => {
       daftarTable,
       daftarCSV,
    };
-   const propsListsDatabase = { isLoading, listDatabase, isLoadingLoadTable, setBreadCrumb, handleLoadTable, setSelected_db };
-   const propsListsTable = { daftarTable, setBreadCrumb, setSelected_table, handleLoadCSV, isLoadingLoadCSV };
-   const propsListsCSV = { daftarCSV, selected_db, selected_table };
+   const propsListsDatabase = { isLoading, listDatabase, isLoadingLoadTable, setBreadCrumb, handleLoadTable, setSelected_db, searchTable };
+   const propsListsTable = { daftarTable, setBreadCrumb, setSelected_table, handleLoadCSV, isLoadingLoadCSV, searchTable };
+   const propsListsCSV = { daftarCSV, selected_db, selected_table, searchTable };
+   const propsFilterTable = { setSearchTable };
 
    return (
       <React.Fragment>
          <Card className="shadow-sm card-flush">
             <Suspense fallback={<div className="card-header pt-8">{h.lazyLoadFile()}</div>}>
-               <FilterTable />
+               <FilterTable {...propsFilterTable} />
             </Suspense>
             <Card.Body>
                <Suspense fallback={<div className="d-flex flex-stack">{h.lazyLoadFile()}</div>}>

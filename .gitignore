@@ -1,3 +1,4 @@
 node_modules
 writable
 app/Config/Database.php
+public/bundle
