@@ -77,46 +77,9 @@ class Home extends BaseController {
       ]);
    }
 
-   public function createDatabaseFile($post = []) {
-      $write = "<?php\n\n";
-      $write .= "namespace Config;\n\n";
-      $write .= "use CodeIgniter\Database\Config;\n\n";
-      $write .= "class Database extends Config {\n\n";
-      $write .= "\tpublic string \$filesPath = APPPATH . 'Database' . DIRECTORY_SEPARATOR;\n\n";
-      $write .= "\tpublic string \$defaultGroup = 'default';\n\n";
-      $write .= "\tpublic array \$default = [\n";
-      $write .= "\t\t'DSN'      => '',\n";
-      $write .= "\t\t'hostname' => '".$post['hostname']."',\n";
-      $write .= "\t\t'username' => '".$post['username']."',\n";
-      $write .= "\t\t'password' => '".$post['password']."',\n";
-      $write .= "\t\t'database' => '".$post['database']."',\n";
-      $write .= "\t\t'DBDriver' => '".$post['dbdriver']."',\n";
-      $write .= "\t\t'DBPrefix' => '',\n";
-      $write .= "\t\t'pConnect' => false,\n";
-      $write .= "\t\t'DBDebug'  => true,\n";
-      $write .= "\t\t'charset'  => 'utf8',\n";
-      $write .= "\t\t'DBCollat' => 'utf8_general_ci',\n";
-      $write .= "\t\t'swapPre'  => '',\n";
-      $write .= "\t\t'encrypt'  => false,\n";
-      $write .= "\t\t'compress' => false,\n";
-      $write .= "\t\t'strictOn' => false,\n";
-      $write .= "\t\t'failover' => [],\n";
-      $write .= "\t\t'port'     => ".$post['port'].",\n";
-      $write .= "\t];\n\n";
-      $write .= "\tpublic function __construct() {\n\n";
-      $write .= "\t\tparent::__construct();\n";
-      $write .= "}\n\n";
-      $write .= "}";
-      if (write_file(APPPATH . 'Config/Database.php', $write)) {
-         return true;
-      } else {
-         return false;
-      }
-   }
-
    public function handleBackup() {
       try {
-         $limit = 1000;
+         $limit = 5000;
          $page = (int) $this->post['page'];
          $offset = $page * $limit;
 

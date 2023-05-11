@@ -77,7 +77,7 @@ const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetail
                   if (data.next_row) {
                      setDownloadProgress({
                         tablename: selectedTable[key],
-                        progress: (((page * 1000) / listTable[getCountRows(selectedTable[key])].count) * 100).toFixed(0),
+                        progress: (((page * 5000) / listTable[getCountRows(selectedTable[key])].count) * 100).toFixed(0),
                      });
                      handleBackup(key, page + 1);
                   } else {
