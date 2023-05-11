@@ -1,11 +1,16 @@
 # Database Backup
 
-## Penggunaan
+## Persyaratan Server
 
-Pastikan telah terinstall minimal php >= 8.0 dan nodejs
+Diperlukan PHP versi 8.0 atau lebih tinggi, dengan ekstensi berikut terpasang:
 
-Jalankan perintah `npm install` untuk meng-install semua module node js
-Kemudian jalankan perintah `npm run build`
+-  [intl](http://php.net/manual/en/intl.requirements.php)
+-  [mbstring](http://php.net/manual/en/mbstring.installation.php)
 
-Jika perintah diatas sudah dilakukan
-Jalankan perintah `php spark serve` untuk menjalankan aplikasi `http://localhost:8080`
+Selain itu, pastikan ekstensi berikut diaktifkan di PHP Anda:
+
+-  json (diaktifkan secara default - jangan matikan)
+-  [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) jika Anda berencana menggunakan MySQL
+-  [libcurl](http://php.net/manual/en/curl.requirements.php) jika Anda berencana menggunakan pustaka HTTP\CURLRequest
+
+`php spark serve` untuk menjalankan aplikasi `http://localhost:8080`
