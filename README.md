@@ -15,3 +15,5 @@ Selain itu, pastikan ekstensi berikut diaktifkan di PHP Anda:
 -  [libcurl](http://php.net/manual/en/curl.requirements.php) jika Anda berencana menggunakan pustaka HTTP\CURLRequest
 
 `php spark serve` untuk menjalankan aplikasi `http://localhost:8080`
+
+Semua ouput yang dihasilkan dari app ini `.csv`
