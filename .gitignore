@@ -1,5 +1,4 @@
 node_modules
 writable
-app/Config/Database.php
 composer.lock
 package-lock.json
