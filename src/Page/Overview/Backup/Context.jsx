@@ -108,16 +108,8 @@ const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetail
                }
             })
             .catch((e) => {
-               let update_list = [];
-               listTable.map((row) => {
-                  if (row.tablename === selectedTable[key]) {
-                     update_list.push(Object.assign(row, { status: "fail" }));
-                  } else {
-                     update_list.push(row);
-                  }
-               });
-               setListTable(update_list);
-               handleBackup(key + 1, 0);
+               h.notification(false, h.error_code_http(e.response.status), e.code);
+               handleBackup(key, page);
             });
       } else {
          setDownloadProgress({});
