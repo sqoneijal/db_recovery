@@ -1,0 +1,5 @@
+{
+   "name": "DB Recovery",
+   "desc": "Simple backup and import database rows",
+   "version": "1.0"
+}
