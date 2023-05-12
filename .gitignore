@@ -2,3 +2,4 @@ node_modules
 writable
 composer.lock
 package-lock.json
+writable/logs
