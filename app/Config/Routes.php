@@ -38,6 +38,7 @@ $routes->group('/', function($routes) {
    $routes->post('connecttodb', 'Home::connectToDB');
    $routes->post('countdatarows', 'Home::countDataRows');
    $routes->post('handlebackup', 'Home::handleBackup');
+   $routes->post('hapus', 'Home::hapus');
 
    $routes->group('database', function($routes) {
       $routes->get('/', 'Database::index');

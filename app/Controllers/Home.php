@@ -66,6 +66,20 @@ class Home extends BaseController {
       $this->template($this->data);
    }
 
+   public function hapus() {
+      $overview = json_decode(file_get_contents(WRITEPATH . 'logs/overview.json'), true);
+
+      $content = [];
+      foreach ($overview as $row) {
+         if ($row['id'] != $this->post['id']) {
+            array_push($content, $row);
+         }
+      }
+
+      file_put_contents(WRITEPATH.'logs/overview.json', json_encode($content, JSON_PRETTY_PRINT));
+      return $this->respond(['status' => true, 'msg_response' => 'Data berhasil dihapus.']);
+   }
+
    public function resetDatabase() {
       $this->createDatabaseFile([
          'hostname' => '',
@@ -114,6 +128,24 @@ class Home extends BaseController {
             }
             fclose($fp);
 
+            $counting = [];
+            $data_counting = json_decode(file_get_contents(WRITEPATH . 'logs/data_counting.json'), true);
+            foreach ($data_counting as $db => $val) {
+               if ($db == $this->post['database']) {
+                  foreach ($data_counting[$db] as $tb => $val_tb) {
+                     if ($tb == $this->post['tablename']) {
+                        $counting[$db][$tb] = ['old_count' => (int) $val_tb['old_count'] + count($result)];
+                     } else {
+                        $counting[$db][$tb] = $val_tb;
+                     }
+                  }
+               } else {
+                  $counting[$db] = $val;
+               }
+            }
+
+            file_put_contents(WRITEPATH . 'logs/data_counting.json', json_encode($counting, JSON_PRETTY_PRINT));
+
             $response['content'] = [$csv_header, ...$csv_row];
             $response['next_row'] = true;
          }
@@ -140,6 +172,20 @@ class Home extends BaseController {
          ]);
       }
 
+      $counting = [];
+      $data_counting = json_decode(file_get_contents(WRITEPATH . 'logs/data_counting.json'), true);
+      foreach ($data_counting as $key => $val) {
+         $counting[$key] = $val;
+      }
+
+      $counting[$this->post['database']] = [];
+      foreach ($db->listTables() as $tb) {
+         $counting[$this->post['database']][$tb] = [
+            'old_count' => (@$data_counting[$this->post['database']][$tb] ? $data_counting[$this->post['database']][$tb]['old_count'] : 0)
+         ];
+      }
+      file_put_contents(WRITEPATH . 'logs/data_counting.json', json_encode($counting, JSON_PRETTY_PRINT));
+
       return $this->respond($response);
    }
 
@@ -149,9 +195,17 @@ class Home extends BaseController {
          @mkdir($tb_path, 0777);
       }
 
+      $data_counting = json_decode(file_get_contents(WRITEPATH . 'logs/data_counting.json'), true);
+
       $db = \Config\Database::connect($this->db_config);
       $table = $db->table($this->post['tablename']);
-      return $this->respond(['next' => true, 'count' => $table->countAllResults()]);
+      $count = $table->countAllResults();
+
+      $response['next'] = true;
+      $response['count'] = $count;
+      $response['old_count'] = @$data_counting[$this->post['database']][$this->post['tablename']]['old_count'] ?? 0;
+
+      return $this->respond($response);
    }
 
    public function submit() {

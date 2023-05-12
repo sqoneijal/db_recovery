@@ -38,7 +38,7 @@ abstract class BaseController extends Controller {
 
    protected $post;
    protected $getVar;
-   protected $env = 'production';
+   protected $env = 'development';
 
    public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger) {
       // Do Not Edit This Line

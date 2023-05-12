@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Card, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faCloudArrowDown, faEye, faEyeSlash, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import * as bootstrap from "bootstrap";
 
 const Backup = React.lazy(() => import("./Backup/Context"));
@@ -16,6 +16,9 @@ const Lists = ({ refreshTable, setRefreshTable }) => {
 
    // object
    const [detailContent, setDetailContent] = useState({});
+
+   // string
+   const [show_pass, setShow_pass] = useState("");
 
    useEffect(() => {
       if (!isLoading) {
@@ -76,7 +79,7 @@ const Lists = ({ refreshTable, setRefreshTable }) => {
                         <th>password</th>
                         <th>database</th>
                         <th>db driver</th>
-                        <th style={{ width: "5%" }} />
+                        <th style={{ width: "10%" }} />
                      </tr>
                   </thead>
                   <tbody className="text-gray-600 fw-semibold">
@@ -87,20 +90,83 @@ const Lists = ({ refreshTable, setRefreshTable }) => {
                                    <td className="text-center">{row.id}</td>
                                    <td>{row.hostname}</td>
                                    <td>{row.username}</td>
-                                   <td>{row.password}</td>
+                                   <td>
+                                      {(() => {
+                                         if (show_pass === index) {
+                                            return (
+                                               <React.Fragment>
+                                                  {row.password}
+                                                  <a
+                                                     href="#"
+                                                     onClick={(e) => {
+                                                        e.preventDefault();
+                                                        setShow_pass("");
+                                                     }}>
+                                                     <FontAwesomeIcon icon={faEyeSlash} className="mx-2" />
+                                                  </a>
+                                               </React.Fragment>
+                                            );
+                                         } else {
+                                            return (
+                                               <React.Fragment>
+                                                  {h.hide_password(row.password.length)}
+                                                  <a
+                                                     href="#"
+                                                     onClick={(e) => {
+                                                        e.preventDefault();
+                                                        setShow_pass(index);
+                                                     }}>
+                                                     <FontAwesomeIcon icon={faEye} className="mx-2" />
+                                                  </a>
+                                               </React.Fragment>
+                                            );
+                                         }
+                                      })()}
+                                   </td>
                                    <td>{row.database}</td>
                                    <td>{row.dbdriver}</td>
-                                   <td>
+                                   <td className="text-end">
                                       <a
                                          href="#"
                                          data-bs-title="Backup database"
                                          data-bs-toggle="tooltip"
+                                         className="btn btn-active-icon-success btn-active-text-success btn-sm p-0"
+                                         style={{ marginRight: 10 }}
                                          onClick={(e) => {
                                             e.preventDefault();
                                             setDetailContent(row);
                                             setOpenFormsBackup(true);
                                          }}>
                                          <FontAwesomeIcon icon={faCloudArrowDown} />
+                                      </a>
+                                      <a
+                                         href="#"
+                                         data-bs-title="Delete database"
+                                         data-bs-toggle="tooltip"
+                                         className="btn btn-active-icon-danger btn-active-text-danger btn-sm p-0"
+                                         onClick={(e) => {
+                                            e.preventDefault();
+                                            h.confirmDelete({
+                                               message: `Apakah anda yakin ingin menghapus database [ ${row.hostname}@${row.database} ]`,
+                                            }).then((res) => {
+                                               const { data } = res;
+                                               if (data.status) {
+                                                  let formData = { id: row.id };
+
+                                                  h.post("/hapus", formData, {}, true)
+                                                     .then((res) => {
+                                                        const { data } = res;
+                                                        data.status && getData();
+                                                     })
+                                                     .catch((e) => {
+                                                        h.notification(false, h.error_code_http(e.response.status), e.code);
+                                                     });
+                                               } else {
+                                                  h.notification(false, data.msg_response);
+                                               }
+                                            });
+                                         }}>
+                                         <FontAwesomeIcon icon={faTrashAlt} />
                                       </a>
                                    </td>
                                 </tr>

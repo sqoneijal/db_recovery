@@ -32,7 +32,7 @@ const Lists = ({
                   let update_content = [];
                   listTable.map((row) => {
                      if (row.count === listTable[key].count) {
-                        update_content.push(Object.assign(row, { count: data.count }));
+                        update_content.push(Object.assign(row, { count: data.count, old_count: data.old_count }));
                      } else {
                         update_content.push(row);
                      }
@@ -149,7 +149,9 @@ const Lists = ({
                              </td>
                              <td className="text-center">{index + 1}</td>
                              <td>{row.tablename}</td>
-                             <td className="text-center">{row.count === row.tablename ? h.span_loading() : row.count}</td>
+                             <td className="text-center">
+                                {row.count === row.tablename ? h.span_loading() : h.compare_count(row.old_count, row.count)}
+                             </td>
                              <td className="text-center">
                                 {(() => {
                                    if (h.parseObject(downloadProgress, "tablename") === row.tablename) {

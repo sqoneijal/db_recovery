@@ -254,3 +254,58 @@ export const serialize = (obj) => {
    }
    return str.join("&");
 };
+
+export const hide_password = (length) => {
+   let text = "";
+   for (let i = 0; i < length; i++) {
+      text += "*";
+   }
+   return text;
+};
+
+export const confirmDelete = ({ ...content }) => {
+   return Swal.fire({
+      text: parseObject(content, "message") ? content.message : "Apakah anda yakin ingin menghapus data ini?",
+      icon: "warning",
+      showCancelButton: true,
+      buttonsStyling: false,
+      confirmButtonText: "Iya, hapus!",
+      cancelButtonText: "Tidak",
+      customClass: {
+         confirmButton: "btn btn-sm fw-bold btn-danger",
+         cancelButton: "btn btn-sm fw-bold btn-primary",
+      },
+   }).then((res) => {
+      if (res.isConfirmed) {
+         return { data: { status: true } };
+      } else {
+         return { data: { status: false, msg_response: "Data batal dihapus." } };
+      }
+   });
+};
+
+export const toInt = (string) => {
+   if (isNaN(parseFloat(string))) {
+      return 0;
+   } else {
+      return parseFloat(string);
+   }
+};
+
+export const compare_count = (old_count, new_count) => {
+   if (toInt(new_count) > toInt(old_count)) {
+      return (
+         <span className="fw-bold">
+            {new_count} / <span className="text-success">+{toInt(new_count) - toInt(old_count)}</span>
+         </span>
+      );
+   } else if (toInt(old_count) > toInt(new_count)) {
+      return (
+         <span className="fw-bold">
+            {new_count} / <span className="text-danger">+{toInt(old_count) - toInt(new_count)}</span>
+         </span>
+      );
+   } else {
+      return <span className="fw-bold">{new_count}</span>;
+   }
+};
