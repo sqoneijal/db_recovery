@@ -323,7 +323,7 @@ class Home extends BaseController {
          file_put_contents(ROOTPATH . 'public/app_version.json', $app_version);
 
          $manifest = $git->get('public/bundle/manifest.json');
-         file_put_contents(ROOTPATH . 'public/manifest.json', $manifest);
+         file_put_contents(ROOTPATH . 'public/bundle/manifest.json', $manifest);
 
          $response['status'] = true;
       }
