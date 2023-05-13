@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Libraries\Git;
 use App\Validation\Home as Validate;
 use App\Models\Home as Model;
 
@@ -268,6 +269,62 @@ class Home extends BaseController {
       } catch (\Exception $e) {
          return $this->respond(['status' => false, 'msg_response' => $e->getMessage()]);
       }
+   }
+
+   public function checkAppUpdate() {
+      $local_version_path = ROOTPATH . 'public/app_version.json';
+
+      $git = new Git();
+      $git_data = $git->read('public/app_version.json');
+
+      $local_version = 0;
+      if (file_exists($local_version_path)) {
+         $decode_local = json_decode(file_get_contents($local_version_path), true);
+         $local_version = (double) $decode_local['version'];
+      }
+
+      $response['update'] = 'not_available';
+      if ((double) $git_data['version'] > $local_version) {
+         $response['update'] = 'available';
+      }
+
+      return $this->respond($response);
+   }
+
+   public function getManifestUpgrade() {
+      $git = new Git();
+      $manifest = $git->read('public/bundle/manifest.json');
+
+      $content = [];
+      foreach ($manifest as $key => $val) {
+         array_push($content, str_replace('auto/', '', $val));
+      }
+      return $this->respond($content);
+   }
+
+   public function upgradeApp() {
+      delete_files(ROOTPATH . 'public/bundle/');
+
+      $git = new Git();
+
+      $finish_download = false;
+      foreach (json_decode($this->post['file'], true) as $file) {
+         $content = $git->get('public/bundle/' . $file);
+         file_put_contents(ROOTPATH . 'public/bundle/' . $file, $content);
+         $finish_download = true;
+      }
+
+      $response['status'] = false;
+      if ($finish_download) {
+         $sw = $git->get('public/sw.js');
+         file_put_contents(ROOTPATH . 'public/sw.js', $sw);
+
+         $app_version = $git->get('public/app_version.json');
+         file_put_contents(ROOTPATH . 'public/app_version.json', $app_version);
+
+         $response['status'] = true;
+      }
+      return $this->respond($response);
    }
 
 }
