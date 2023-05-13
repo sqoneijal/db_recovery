@@ -158,7 +158,7 @@ const ModalUpdateApp = ({ openModalUpdateApp, setOpenModalUpdateApp }) => {
       h.post("/upgradeapp", formData, {}, true)
          .then((res) => {
             const { data } = res;
-            data.stats && location.reload();
+            data.status && location.reload();
          })
          .catch((e) => {
             h.notification(false, h.error_code_http(e.response.status), e.code);
