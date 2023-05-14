@@ -136,7 +136,7 @@ class Home extends BaseController {
                if ($db == $this->post['database']) {
                   foreach ($data_counting[$db] as $tb => $val_tb) {
                      if ($tb == $this->post['tablename']) {
-                        $counting[$db][$tb] = ['old_count' => (int) $this->post['total_rows']];
+                        $counting[$db][$tb] = ['old_count' => (int) $this->post['total_row']];
                      } else {
                         $counting[$db][$tb] = $val_tb;
                      }
