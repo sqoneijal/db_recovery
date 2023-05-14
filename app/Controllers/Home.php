@@ -327,6 +327,9 @@ class Home extends BaseController {
          $manifest = $git->get('public/bundle/manifest.json');
          file_put_contents(ROOTPATH . 'public/bundle/manifest.json', $manifest);
 
+         $routes = $git->get('app/Config/Routes.php');
+         file_put_contents(APPPATH . 'Config/Routes.php', $routes);
+
          $database = $git->get('app/Controllers/Database.php');
          file_put_contents(APPPATH . 'Controllers/Database.php', $database);
 
