@@ -289,6 +289,9 @@ class Home extends BaseController {
          $response['update'] = 'available';
       }
 
+      $response['online_version'] = (double) $git_data['version'];
+      $response['local_version'] = (double) $local_version;
+
       return $this->respond($response);
    }
 
@@ -304,8 +307,6 @@ class Home extends BaseController {
    }
 
    public function upgradeApp() {
-      delete_files(ROOTPATH . 'public/bundle/');
-
       $git = new Git();
 
       $finish_download = false;

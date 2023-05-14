@@ -153,7 +153,7 @@ const ModalUpdateApp = ({ openModalUpdateApp, setOpenModalUpdateApp }) => {
       setOpenModalUpdateApp(false);
    };
 
-   /* const submit = (file = []) => {
+   const submit = (file = []) => {
       let formData = { file: JSON.stringify(file) };
       h.post("/upgradeapp", formData, {}, true)
          .then((res) => {
@@ -176,20 +176,6 @@ const ModalUpdateApp = ({ openModalUpdateApp, setOpenModalUpdateApp }) => {
          .catch((e) => {
             h.notification(false, h.error_code_http(e.response.status), e.code);
          });
-   }; */
-
-   const submit = (e) => {
-      e.preventDefault();
-      h.get("/upgradeapp", {}, true)
-         .then((res) => {
-            const { data } = res;
-            h.log(data);
-         })
-         .catch((e) => {
-            h.notification(false, h.error_code_http(e.response.status), e.code);
-            setIsSubmit(false);
-         })
-         .then(() => {});
    };
 
    return (
@@ -212,7 +198,7 @@ const ModalUpdateApp = ({ openModalUpdateApp, setOpenModalUpdateApp }) => {
             )}
          </Modal.Body>
          <Modal.Footer>
-            {h.buttons("Upgrade", isSubmit, { onClick: isSubmit ? null : submit })}
+            {h.buttons("Upgrade", isSubmit, { onClick: isSubmit ? null : getManifestUpgrade })}
             {!isSubmit && h.buttons("Batal", false, { variant: "danger", onClick: clearProps })}
          </Modal.Footer>
       </Modal>
