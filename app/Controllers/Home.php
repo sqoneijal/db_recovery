@@ -304,9 +304,7 @@ class Home extends BaseController {
    }
 
    public function upgradeApp() {
-      $cli = shell_exec('git fetch');
-      echo $cli;
-      /* delete_files(ROOTPATH . 'public/bundle/');
+      delete_files(ROOTPATH . 'public/bundle/');
 
       $git = new Git();
 
@@ -328,9 +326,15 @@ class Home extends BaseController {
          $manifest = $git->get('public/bundle/manifest.json');
          file_put_contents(ROOTPATH . 'public/bundle/manifest.json', $manifest);
 
+         $database = $git->get('app/Controllers/Database.php');
+         file_put_contents(APPPATH . 'Controllers/Database.php', $database);
+
+         $home = $git->get('app/Controllers/Home.php');
+         file_put_contents(APPPATH . 'Controllers/Home.php', $home);
+
          $response['status'] = true;
       }
-      return $this->respond($response); */
+      return $this->respond($response);
    }
 
 }

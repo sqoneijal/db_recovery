@@ -302,7 +302,7 @@ export const compare_count = (old_count, new_count) => {
    } else if (toInt(old_count) > toInt(new_count)) {
       return (
          <span className="fw-bold">
-            {new_count} / <span className="text-danger">+{toInt(old_count) - toInt(new_count)}</span>
+            {new_count} / <span className="text-danger">-{toInt(old_count) - toInt(new_count)}</span>
          </span>
       );
    } else {
