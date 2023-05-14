@@ -108,7 +108,6 @@ const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetail
                }
             })
             .catch((e) => {
-               h.notification(false, h.error_code_http(e.response.status), e.code);
                handleBackup(key, page);
             });
       } else {

@@ -1,1 +1,10 @@
-[]
+[{
+    "id": 1,
+    "datetime": "2023-05-14 05:30:58",
+    "hostname": "localhost",
+    "username": "postgres",
+    "password": "anarki1991",
+    "database": "db_siakad",
+    "port": "5432",
+    "dbdriver": "Postgre"
+}]

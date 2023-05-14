@@ -6,6 +6,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use App\Libraries\Git;
+use CodeIgniter\CLI\CLI;
 use App\Validation\Home as Validate;
 use App\Models\Home as Model;
 
@@ -303,7 +304,9 @@ class Home extends BaseController {
    }
 
    public function upgradeApp() {
-      delete_files(ROOTPATH . 'public/bundle/');
+      $cli = shell_exec('git fetch');
+      echo $cli;
+      /* delete_files(ROOTPATH . 'public/bundle/');
 
       $git = new Git();
 
@@ -327,7 +330,7 @@ class Home extends BaseController {
 
          $response['status'] = true;
       }
-      return $this->respond($response);
+      return $this->respond($response); */
    }
 
 }

@@ -1,1 +1,133 @@
-[]
+{
+    "db_siakad": {
+        "tb_mst_sumber_gaji": {
+            "old_count": 7
+        },
+        "tb_mst_status_kepegawaian": {
+            "old_count": 13
+        },
+        "tb_mst_status_keaktifan_pegawai": {
+            "old_count": 6
+        },
+        "tb_mst_provinsi": {
+            "old_count": 285
+        },
+        "tb_mst_pangkat_golongan": {
+            "old_count": 18
+        },
+        "tb_mst_lembaga_pengangkat": {
+            "old_count": 33
+        },
+        "tb_mst_kecamatan": {
+            "old_count": 7519
+        },
+        "tb_users": {
+            "old_count": 1
+        },
+        "tb_mst_kabkota": {
+            "old_count": 798
+        },
+        "tb_mst_ikatan_kerja": {
+            "old_count": 10
+        },
+        "tb_mst_fakultas": {
+            "old_count": 10
+        },
+        "tb_mst_agama": {
+            "old_count": 7
+        },
+        "tb_mst_status_mahasiswa": {
+            "old_count": 5
+        },
+        "tb_mst_jenis_keluar": {
+            "old_count": 9
+        },
+        "tb_dosen": {
+            "old_count": 831
+        },
+        "tb_mst_periode": {
+            "old_count": 18
+        },
+        "tb_mst_prodi": {
+            "old_count": 57
+        },
+        "tb_mst_jenjang_pend": {
+            "old_count": 25
+        },
+        "tb_mst_kebutuhan_khusus": {
+            "old_count": 36865
+        },
+        "tb_mst_pekerjaan": {
+            "old_count": 19
+        },
+        "tb_mst_gelar_akademik": {
+            "old_count": 1674
+        },
+        "tb_penugasan_dosen": {
+            "old_count": 6131
+        },
+        "tb_mst_all_pt": {
+            "old_count": 9654
+        },
+        "tb_mst_all_prodi": {
+            "old_count": 41758
+        },
+        "tb_pangkat_golongan_dosen": {
+            "old_count": 4
+        },
+        "tb_fungsional_dosen": {
+            "old_count": 6
+        },
+        "tb_pendidikan_dosen": {
+            "old_count": 18
+        },
+        "tb_mst_bidang_studi": {
+            "old_count": 435
+        },
+        "tb_mst_jabatan_fungsional": {
+            "old_count": 10
+        },
+        "tb_sertifikasi_dosen": {
+            "old_count": 9
+        },
+        "tb_mst_kategori_kegiatan": {
+            "old_count": 259
+        },
+        "tb_mst_skim_kegiatan": {
+            "old_count": 26
+        },
+        "tb_mst_kelompok_bidang": {
+            "old_count": 3618
+        },
+        "tb_penelitian_dosen": {
+            "old_count": 6
+        },
+        "tb_mahasiswa": {
+            "old_count": 58358
+        },
+        "tb_mst_jenis_tinggal": {
+            "old_count": 7
+        },
+        "tb_mst_penghasilan": {
+            "old_count": 7
+        },
+        "tb_mst_negara": {
+            "old_count": 251
+        },
+        "tb_mst_alat_transportasi": {
+            "old_count": 12
+        },
+        "tb_riwayat_pendidikan": {
+            "old_count": 59869
+        },
+        "tb_mst_jenis_pendaftaran": {
+            "old_count": 11
+        },
+        "tb_mst_jalurmasuk": {
+            "old_count": 8
+        },
+        "tb_mst_pembiayan": {
+            "old_count": 3
+        }
+    }
+}

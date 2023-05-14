@@ -35,13 +35,13 @@ $routes->group('/', function($routes) {
    $routes->get('resetdatabase', 'Home::resetDatabase');
    $routes->get('checkappupdate', 'Home::checkAppUpdate');
    $routes->get('getmanifestupgrade', 'Home::getManifestUpgrade');
+   $routes->get('upgradeapp', 'Home::upgradeApp');
 
    $routes->post('submit', 'Home::submit');
    $routes->post('connecttodb', 'Home::connectToDB');
    $routes->post('countdatarows', 'Home::countDataRows');
    $routes->post('handlebackup', 'Home::handleBackup');
    $routes->post('hapus', 'Home::hapus');
-   $routes->post('upgradeapp', 'Home::upgradeApp');
 
    $routes->group('database', function($routes) {
       $routes->get('/', 'Database::index');
