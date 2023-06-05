@@ -9,7 +9,8 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-abstract class BaseController extends Controller {
+abstract class BaseController extends Controller
+{
    /**
     * Instance of the main Request object.
     *
@@ -38,9 +39,10 @@ abstract class BaseController extends Controller {
 
    protected $post;
    protected $getVar;
-   protected $env = 'production';
+   protected $env = 'development';
 
-   public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger) {
+   public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
+   {
       // Do Not Edit This Line
       parent::initController($request, $response, $logger);
 
@@ -48,15 +50,17 @@ abstract class BaseController extends Controller {
       $this->getVar = $request->getVar();
    }
 
-   public function template($content = []) {
-		$data['title'] = $content['title'];
+   public function template($content = [])
+   {
+      $data['title'] = $content['title'];
       $data['webpack_css'] = $this->generateWebpackCss();
       $data['webpack_js'] = $this->generateWebpackJS();
 
-		echo view('MainTemplate', $data);
+      echo view('MainTemplate', $data);
    }
 
-   protected function generateWebpackCss() {
+   protected function generateWebpackCss()
+   {
       if ($this->env === 'development') {
          return css_tag([
             'http://localhost:8081/main.css',
@@ -78,7 +82,8 @@ abstract class BaseController extends Controller {
       }
    }
 
-   protected function generateWebpackJS() {
+   protected function generateWebpackJS()
+   {
       if ($this->env === 'development') {
          return script_tag([
             'http://localhost:8081/main.js',
@@ -101,7 +106,8 @@ abstract class BaseController extends Controller {
       }
    }
 
-   public function internalCss($content = []) {
+   public function internalCss($content = [])
+   {
       $internalCss = [];
       if (@$content['internalCss']) {
          foreach ($content['internalCss'] as $path) {
@@ -111,7 +117,8 @@ abstract class BaseController extends Controller {
       return $internalCss;
    }
 
-   public function internalJs($content = []) {
+   public function internalJs($content = [])
+   {
       $internalJs = [];
       if (@$content['internalJs']) {
          foreach ($content['internalJs'] as $path) {
@@ -121,8 +128,8 @@ abstract class BaseController extends Controller {
       return $internalJs;
    }
 
-   public function respond($data) {
+   public function respond($data)
+   {
       return $this->response->setJSON($data);
    }
-
 }

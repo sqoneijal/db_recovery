@@ -129,5 +129,79 @@
         "tb_mst_pembiayan": {
             "old_count": 3
         }
+    },
+    "waligrup_koperasi": {
+        "ci_sessions": {
+            "old_count": 0
+        },
+        "tb_akun": {
+            "old_count": 2
+        },
+        "tb_anggota": {
+            "old_count": 0
+        },
+        "tb_data_agama": {
+            "old_count": 6
+        },
+        "tb_data_barang": {
+            "old_count": 0
+        },
+        "tb_data_kas": {
+            "old_count": 5
+        },
+        "tb_data_merk": {
+            "old_count": 9
+        },
+        "tb_data_pekerjaan": {
+            "old_count": 19
+        },
+        "tb_data_type": {
+            "old_count": 1
+        },
+        "tb_identitas_koperasi": {
+            "old_count": 1
+        },
+        "tb_jenis_akun": {
+            "old_count": 38
+        },
+        "tb_jenis_simpanan": {
+            "old_count": 3
+        },
+        "tb_lama_angsuran": {
+            "old_count": 6
+        },
+        "tb_mst_desa": {
+            "old_count": 83442
+        },
+        "tb_mst_kabkota": {
+            "old_count": 514
+        },
+        "tb_mst_kecamatan": {
+            "old_count": 7230
+        },
+        "tb_mst_provinsi": {
+            "old_count": 34
+        },
+        "tb_pemasukan": {
+            "old_count": 6
+        },
+        "tb_penarikan_tunai": {
+            "old_count": 0
+        },
+        "tb_pengeluaran": {
+            "old_count": 8
+        },
+        "tb_setoran_tunai": {
+            "old_count": 0
+        },
+        "tb_total_simpanan_anggota": {
+            "old_count": 0
+        },
+        "tb_transfer": {
+            "old_count": 0
+        },
+        "tb_users": {
+            "old_count": 3
+        }
     }
 }

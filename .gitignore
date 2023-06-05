@@ -3,3 +3,5 @@ writable
 composer.lock
 package-lock.json
 writable/logs
+writable/logs/data_counting.json
+writable/logs/overview.json
