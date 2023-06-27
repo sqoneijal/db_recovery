@@ -6,35 +6,35 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use App\Libraries\Git;
-use CodeIgniter\CLI\CLI;
 use App\Validation\Home as Validate;
-use App\Models\Home as Model;
 
-class Home extends BaseController {
+class Home extends BaseController
+{
 
    protected $data;
 
    protected $db_config = [
       'DSN'      => '',
-		'hostname' => '',
-		'username' => '',
-		'password' => '',
-		'database' => '',
-		'DBDriver' => '',
-		'DBPrefix' => '',
-		'pConnect' => false,
-		'DBDebug'  => true,
-		'charset'  => 'utf8',
-		'DBCollat' => 'utf8_general_ci',
-		'swapPre'  => '',
-		'encrypt'  => false,
-		'compress' => false,
-		'strictOn' => false,
-		'failover' => [],
-		'port'     => 3306,
+      'hostname' => '',
+      'username' => '',
+      'password' => '',
+      'database' => '',
+      'DBDriver' => '',
+      'DBPrefix' => '',
+      'pConnect' => false,
+      'DBDebug'  => true,
+      'charset'  => 'utf8',
+      'DBCollat' => 'utf8_general_ci',
+      'swapPre'  => '',
+      'encrypt'  => false,
+      'compress' => false,
+      'strictOn' => false,
+      'failover' => [],
+      'port'     => 3306,
    ];
 
-   public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger) {
+   public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
+   {
       parent::initController($request, $response, $logger);
 
       if ($request->isAjax()) {
@@ -60,7 +60,16 @@ class Home extends BaseController {
       }
    }
 
-   public function index() {
+   public function index()
+   {
+      $path = file_get_contents(set_realpath(ROOTPATH . 'public/thunder.json'));
+      $data = json_decode($path, true);
+
+      echo '<pre>';
+      echo count($data['data']);
+      echo '</pre>';
+      die();
+
       $this->data = [
          'title' => 'Overview'
       ];
@@ -68,7 +77,23 @@ class Home extends BaseController {
       $this->template($this->data);
    }
 
-   public function hapus() {
+   public function getStructureTable()
+   {
+      $db = \Config\Database::connect($this->db_config);
+
+      $response = [];
+      $tables = $db->listTables();
+      foreach ($tables as $table) {
+         array_push($response, [
+            'table' => $table,
+            'fields' => $db->getFieldData($table)
+         ]);
+      }
+      return $this->respond($response);
+   }
+
+   public function hapus()
+   {
       $overview = json_decode(file_get_contents(WRITEPATH . 'logs/overview.json'), true);
 
       $content = [];
@@ -78,11 +103,12 @@ class Home extends BaseController {
          }
       }
 
-      file_put_contents(WRITEPATH.'logs/overview.json', json_encode($content, JSON_PRETTY_PRINT));
+      file_put_contents(WRITEPATH . 'logs/overview.json', json_encode($content, JSON_PRETTY_PRINT));
       return $this->respond(['status' => true, 'msg_response' => 'Data berhasil dihapus.']);
    }
 
-   public function resetDatabase() {
+   public function resetDatabase()
+   {
       $this->createDatabaseFile([
          'hostname' => '',
          'username' => '',
@@ -93,7 +119,8 @@ class Home extends BaseController {
       ]);
    }
 
-   public function handleBackup() {
+   public function handleBackup()
+   {
       try {
          $limit = 5000;
          $page = (int) $this->post['page'];
@@ -110,7 +137,7 @@ class Home extends BaseController {
 
          $response = ['next_row' => false, 'status' => true];
          if (count($result) > 0) {
-            $csv_path = WRITEPATH . 'logs/'.$this->post['database'].'/'.$this->post['tablename'].'/data_'.$page.'.csv';
+            $csv_path = WRITEPATH . 'logs/' . $this->post['database'] . '/' . $this->post['tablename'] . '/data_' . $page . '.csv';
 
             $csv_header = [];
             foreach ($fieldNames as $field) {
@@ -157,7 +184,8 @@ class Home extends BaseController {
       }
    }
 
-   public function connectToDB() {
+   public function connectToDB()
+   {
       $db_path = WRITEPATH . 'logs/' . $this->post['database'];
       if (!file_exists($db_path)) {
          @mkdir($db_path, 0777);
@@ -191,8 +219,9 @@ class Home extends BaseController {
       return $this->respond($response);
    }
 
-   public function countDataRows() {
-      $tb_path = WRITEPATH . 'logs/' . $this->post['database'].'/'.$this->post['tablename'];
+   public function countDataRows()
+   {
+      $tb_path = WRITEPATH . 'logs/' . $this->post['database'] . '/' . $this->post['tablename'];
       if (!file_exists($tb_path)) {
          @mkdir($tb_path, 0777);
       }
@@ -210,9 +239,10 @@ class Home extends BaseController {
       return $this->respond($response);
    }
 
-   public function submit() {
+   public function submit()
+   {
       $response = ['status' => false, 'errors' => []];
-      
+
       $validation = new Validate();
       if ($this->validate($validation->submit())) {
          $data = [];
@@ -221,7 +251,7 @@ class Home extends BaseController {
             else $data[$key] = is_numeric($val) ? $val : null;
          }
          unset($data['pageType']);
-         
+
          $savePath = $this->readSavePath();
 
          if (count($savePath) > 0) {
@@ -230,12 +260,12 @@ class Home extends BaseController {
                array_push($set_data, $row);
             }
 
-            file_put_contents(WRITEPATH.'logs/overview.json', json_encode(array_merge($set_data, [array_merge(['id' => count($savePath) + 1, 'datetime' => date('Y-m-d H:i:s')], $data)]), JSON_PRETTY_PRINT));
+            file_put_contents(WRITEPATH . 'logs/overview.json', json_encode(array_merge($set_data, [array_merge(['id' => count($savePath) + 1, 'datetime' => date('Y-m-d H:i:s')], $data)]), JSON_PRETTY_PRINT));
             $response['set_data'] = array_merge($set_data, [$data]);
          } else {
-            file_put_contents(WRITEPATH.'logs/overview.json', '['.json_encode(array_merge(['id' => 1, 'datetime' => date('Y-m-d H:i:s')], $data), JSON_PRETTY_PRINT).']');
+            file_put_contents(WRITEPATH . 'logs/overview.json', '[' . json_encode(array_merge(['id' => 1, 'datetime' => date('Y-m-d H:i:s')], $data), JSON_PRETTY_PRINT) . ']');
          }
-      
+
          $response['status'] = true;
          $response['msg_response'] = 'Data berhasil disimpan.';
       } else {
@@ -245,23 +275,25 @@ class Home extends BaseController {
       return $this->respond($response);
    }
 
-   private function readSavePath() {
+   private function readSavePath()
+   {
       $path = WRITEPATH . 'logs';
       $file_name = 'overview.json';
 
-      if (file_exists($path.'/'. $file_name)) {
-         $get_file = file_get_contents($path.'/'. $file_name);
+      if (file_exists($path . '/' . $file_name)) {
+         $get_file = file_get_contents($path . '/' . $file_name);
          return json_decode($get_file, true);
       } else {
          $data = '[]';
-         write_file($path.'/'. $file_name, $data);
+         write_file($path . '/' . $file_name, $data);
          return [];
       }
    }
 
-   public function getData() {
+   public function getData()
+   {
       try {
-         $file_content = file_get_contents(WRITEPATH.'logs/overview.json');
+         $file_content = file_get_contents(WRITEPATH . 'logs/overview.json');
 
          return $this->respond([
             'status' => true,
@@ -272,7 +304,8 @@ class Home extends BaseController {
       }
    }
 
-   public function checkAppUpdate() {
+   public function checkAppUpdate()
+   {
       $local_version_path = ROOTPATH . 'public/app_version.json';
 
       $git = new Git();
@@ -281,21 +314,22 @@ class Home extends BaseController {
       $local_version = 0;
       if (file_exists($local_version_path)) {
          $decode_local = json_decode(file_get_contents($local_version_path), true);
-         $local_version = (double) $decode_local['version'];
+         $local_version = (float) $decode_local['version'];
       }
 
       $response['update'] = 'not_available';
-      if ((double) $git_data['version'] > $local_version) {
+      if ((float) $git_data['version'] > $local_version) {
          $response['update'] = 'available';
       }
 
-      $response['online_version'] = (double) $git_data['version'];
-      $response['local_version'] = (double) $local_version;
+      $response['online_version'] = (float) $git_data['version'];
+      $response['local_version'] = (float) $local_version;
 
       return $this->respond($response);
    }
 
-   public function getManifestUpgrade() {
+   public function getManifestUpgrade()
+   {
       $git = new Git();
       $manifest = $git->read('public/bundle/manifest.json');
 
@@ -306,7 +340,8 @@ class Home extends BaseController {
       return $this->respond($content);
    }
 
-   public function upgradeApp() {
+   public function upgradeApp()
+   {
       $git = new Git();
 
       $finish_download = false;
@@ -340,5 +375,4 @@ class Home extends BaseController {
       }
       return $this->respond($response);
    }
-
 }

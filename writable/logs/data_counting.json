@@ -60,6 +60,9 @@
         "tb_mst_pekerjaan": {
             "old_count": 19
         },
+        "tb_profil_pt": {
+            "old_count": 1
+        },
         "tb_mst_gelar_akademik": {
             "old_count": 1674
         },
@@ -117,14 +120,17 @@
         "tb_mst_alat_transportasi": {
             "old_count": 12
         },
-        "tb_riwayat_pendidikan": {
-            "old_count": 59869
+        "tb_mst_matakuliah": {
+            "old_count": 20525
         },
         "tb_mst_jenis_pendaftaran": {
             "old_count": 11
         },
         "tb_mst_jalurmasuk": {
             "old_count": 8
+        },
+        "tb_riwayat_pendidikan": {
+            "old_count": 59869
         },
         "tb_mst_pembiayan": {
             "old_count": 3
@@ -202,6 +208,1111 @@
         },
         "tb_users": {
             "old_count": 3
+        }
+    },
+    "siakad_offline": {
+        "InsertAktivitasMahasiswa": {
+            "old_count": 0
+        },
+        "InsertAnggotaAktivitasMahasiswa": {
+            "old_count": 0
+        },
+        "InsertBimbingMahasiswa": {
+            "old_count": 0
+        },
+        "InsertBiodataMahasiswa": {
+            "old_count": 0
+        },
+        "InsertDosenPengajarKelasKuliah": {
+            "old_count": 0
+        },
+        "InsertKelasKuliah": {
+            "old_count": 0
+        },
+        "InsertKurikulum": {
+            "old_count": 0
+        },
+        "InsertMahasiswaLulusDO": {
+            "old_count": 0
+        },
+        "InsertMataKuliah": {
+            "old_count": 0
+        },
+        "InsertMatkulKurikulum": {
+            "old_count": 0
+        },
+        "InsertNilaiTransferPendidikanMahasiswa": {
+            "old_count": 0
+        },
+        "InsertPerkuliahanMahasiswa": {
+            "old_count": 0
+        },
+        "InsertPesertaKelasKuliah": {
+            "old_count": 0
+        },
+        "InsertRiwayatPendidikanMahasiswa": {
+            "old_count": 0
+        },
+        "UpdateNilaiPerkuliahanKelas": {
+            "old_count": 0
+        },
+        "ci_sessions": {
+            "old_count": 0
+        },
+        "data_riwayat_mhs_sarjana": {
+            "old_count": 0
+        },
+        "e_skripsi_bimbingan_detail": {
+            "old_count": 0
+        },
+        "e_skripsi_bimbingan_header": {
+            "old_count": 0
+        },
+        "e_skripsi_jadwal_sidang": {
+            "old_count": 0
+        },
+        "e_skripsi_pembahas_sidang": {
+            "old_count": 0
+        },
+        "e_skripsi_pembimbing": {
+            "old_count": 0
+        },
+        "e_skripsi_pendaftaran_sidang": {
+            "old_count": 0
+        },
+        "e_skripsi_pengajuan_judul": {
+            "old_count": 0
+        },
+        "e_skripsi_template_surat": {
+            "old_count": 0
+        },
+        "invoice_bank": {
+            "old_count": 0
+        },
+        "ipk_lululusa": {
+            "old_count": 0
+        },
+        "ips_ipk": {
+            "old_count": 0
+        },
+        "klik_jadwal_pembayaran": {
+            "old_count": 0
+        },
+        "klik_komponen_pembayaran": {
+            "old_count": 0
+        },
+        "klik_logs": {
+            "old_count": 0
+        },
+        "klik_pembayaran": {
+            "old_count": 0
+        },
+        "klik_pembayaran_detail": {
+            "old_count": 0
+        },
+        "klik_pembayaran_detail_gagal": {
+            "old_count": 0
+        },
+        "kondisi_ipk_rata2": {
+            "old_count": 0
+        },
+        "kondisi_smt_antara": {
+            "old_count": 0
+        },
+        "kondisi_smt_ganjil": {
+            "old_count": 0
+        },
+        "kondisi_smt_genap": {
+            "old_count": 0
+        },
+        "ktm": {
+            "old_count": 0
+        },
+        "list_refund_antara": {
+            "old_count": 0
+        },
+        "lulus_non_pmb": {
+            "old_count": 0
+        },
+        "lulus_pmb2019": {
+            "old_count": 0
+        },
+        "mahad_info": {
+            "old_count": 0
+        },
+        "mahad_nim": {
+            "old_count": 0
+        },
+        "mhs_dummy": {
+            "old_count": 0
+        },
+        "mst_lock_id_mhs": {
+            "old_count": 0
+        },
+        "nim_reguler": {
+            "old_count": 0
+        },
+        "riwayatdosen_20221": {
+            "old_count": 0
+        },
+        "riwayatmhs20221": {
+            "old_count": 0
+        },
+        "riwayatmhs_20221": {
+            "old_count": 0
+        },
+        "satker": {
+            "old_count": 0
+        },
+        "sppcovid": {
+            "old_count": 0
+        },
+        "tb_absen_antara_mhs": {
+            "old_count": 0
+        },
+        "tb_absen_roster": {
+            "old_count": 0
+        },
+        "tb_absen_roster_detail": {
+            "old_count": 0
+        },
+        "tb_bebas_ukt": {
+            "old_count": 0
+        },
+        "tb_bypass_spp": {
+            "old_count": 0
+        },
+        "tb_config_jadwal_pengisian_krs_antara": {
+            "old_count": 0
+        },
+        "tb_detail_sidang": {
+            "old_count": 0
+        },
+        "tb_gagal_pembayaran": {
+            "old_count": 0
+        },
+        "tb_informasi_kpm": {
+            "old_count": 0
+        },
+        "tb_informasi_syarat_kpm": {
+            "old_count": 0
+        },
+        "tb_invoice_spp84": {
+            "old_count": 0
+        },
+        "tb_jadwal_pendaftaran_kpm": {
+            "old_count": 0
+        },
+        "tb_jurnal_antara": {
+            "old_count": 0
+        },
+        "tb_keahlian_mhs": {
+            "old_count": 0
+        },
+        "tb_kerja_praktek_mhs": {
+            "old_count": 0
+        },
+        "tb_keys": {
+            "old_count": 0
+        },
+        "tb_mahasiswa_kelulusan": {
+            "old_count": 0
+        },
+        "tb_mahasiswa_kelulusan_transfer": {
+            "old_count": 0
+        },
+        "tb_manual_perkuliahan_mahasiswa": {
+            "old_count": 0
+        },
+        "tb_matkul_antara": {
+            "old_count": 0
+        },
+        "tb_matkul_kpm": {
+            "old_count": 0
+        },
+        "tb_matkul_prodi": {
+            "old_count": 0
+        },
+        "tb_mst_jenis_kpm": {
+            "old_count": 0
+        },
+        "tb_mst_jenis_prestasi": {
+            "old_count": 0
+        },
+        "tb_mst_jns_tinggal": {
+            "old_count": 0
+        },
+        "tb_mst_lokasi_gedung": {
+            "old_count": 0
+        },
+        "tb_mst_model_nilai": {
+            "old_count": 0
+        },
+        "tb_mst_model_nilai_detail": {
+            "old_count": 0
+        },
+        "tb_mst_rentang_nilai": {
+            "old_count": 0
+        },
+        "tb_mst_tingkat_prestasi": {
+            "old_count": 0
+        },
+        "tb_mst_transportasi": {
+            "old_count": 0
+        },
+        "tb_nilai_model_mahasiswa": {
+            "old_count": 0
+        },
+        "tb_organisasi_mhs": {
+            "old_count": 0
+        },
+        "tb_paket_internet": {
+            "old_count": 0
+        },
+        "tb_password_user": {
+            "old_count": 0
+        },
+        "tb_pegawai": {
+            "old_count": 0
+        },
+        "tb_pend_karakter_mhs": {
+            "old_count": 0
+        },
+        "tb_pengajuan_refund": {
+            "old_count": 0
+        },
+        "tb_periode_bypass_spp": {
+            "old_count": 0
+        },
+        "tb_periode_kpm": {
+            "old_count": 0
+        },
+        "tb_peserta_kpm": {
+            "old_count": 0
+        },
+        "tb_prestasi": {
+            "old_count": 0
+        },
+        "tb_prestasi_mhs": {
+            "old_count": 0
+        },
+        "tb_public_key": {
+            "old_count": 0
+        },
+        "tb_revisi_skripsi": {
+            "old_count": 0
+        },
+        "tb_riwayat_dosen": {
+            "old_count": 0
+        },
+        "tb_riwayat_dosen_pasca": {
+            "old_count": 0
+        },
+        "tb_roster_antara": {
+            "old_count": 0
+        },
+        "tb_roster_antara_detail": {
+            "old_count": 0
+        },
+        "tb_sidang": {
+            "old_count": 0
+        },
+        "tb_sidang_approve": {
+            "old_count": 0
+        },
+        "tb_status_pengajuan_antara_mhs": {
+            "old_count": 0
+        },
+        "tb_status_syncron_feeder": {
+            "old_count": 0
+        },
+        "tb_surat_magang": {
+            "old_count": 0
+        },
+        "tb_temp_generate_krs_akm": {
+            "old_count": 0
+        },
+        "tb_tes1": {
+            "old_count": 0
+        },
+        "tb_tes2": {
+            "old_count": 0
+        },
+        "tb_ukt_covid": {
+            "old_count": 0
+        },
+        "tb_user_logs": {
+            "old_count": 0
+        },
+        "tbl_afirmasi": {
+            "old_count": 0
+        },
+        "tbl_bank": {
+            "old_count": 0
+        },
+        "tbl_calon": {
+            "old_count": 0
+        },
+        "tbl_calon_mahasiswa": {
+            "old_count": 0
+        },
+        "tbl_calon_mahasiswa_2018": {
+            "old_count": 0
+        },
+        "tbl_calon_mahasiswa_2019": {
+            "old_count": 0
+        },
+        "tbl_feeder_perguruan_tinggi": {
+            "old_count": 0
+        },
+        "tbl_feeder_periode": {
+            "old_count": 0
+        },
+        "tbl_feeder_prodi": {
+            "old_count": 0
+        },
+        "tbl_konfig_hari": {
+            "old_count": 0
+        },
+        "tbl_konfig_jam": {
+            "old_count": 0
+        },
+        "tbl_konfig_krs": {
+            "old_count": 0
+        },
+        "tbl_konfig_nilaihuruf": {
+            "old_count": 0
+        },
+        "tbl_konfig_persentasenilai": {
+            "old_count": 0
+        },
+        "tbl_konfig_predikat": {
+            "old_count": 0
+        },
+        "tbl_konfig_ukt": {
+            "old_count": 0
+        },
+        "tbl_konfig_umum": {
+            "old_count": 0
+        },
+        "tbl_krs": {
+            "old_count": 0
+        },
+        "tbl_krs_backup": {
+            "old_count": 0
+        },
+        "tbl_krs_detail": {
+            "old_count": 0
+        },
+        "tbl_krs_detail_backup": {
+            "old_count": 0
+        },
+        "tbl_krs_detail_perbaikan_nilai": {
+            "old_count": 0
+        },
+        "tbl_krs_konversi": {
+            "old_count": 0
+        },
+        "tbl_kuota": {
+            "old_count": 0
+        },
+        "tbl_kurikulum_detail": {
+            "old_count": 0
+        },
+        "tbl_kurikulum_detail_backup": {
+            "old_count": 0
+        },
+        "tbl_kurikulum_header": {
+            "old_count": 0
+        },
+        "tbl_lock_id_mhs": {
+            "old_count": 0
+        },
+        "tbl_mahasiswa": {
+            "old_count": 0
+        },
+        "tbl_mahasiswa_akm": {
+            "old_count": 0
+        },
+        "tbl_mahasiswa_beasiswa": {
+            "old_count": 0
+        },
+        "tbl_mahasiswa_copy": {
+            "old_count": 0
+        },
+        "tbl_mahasiswa_emis": {
+            "old_count": 0
+        },
+        "tbl_mahasiswa_histori_perubahan_spp": {
+            "old_count": 0
+        },
+        "tbl_mahasiswa_lulus": {
+            "old_count": 0
+        },
+        "tbl_massage": {
+            "old_count": 0
+        },
+        "tbl_mst_agama": {
+            "old_count": 0
+        },
+        "tbl_mst_config_penomoran": {
+            "old_count": 0
+        },
+        "tbl_mst_config_periode": {
+            "old_count": 0
+        },
+        "tbl_mst_config_periode_detail": {
+            "old_count": 0
+        },
+        "tbl_mst_config_periode_item": {
+            "old_count": 0
+        },
+        "tbl_mst_eselon": {
+            "old_count": 0
+        },
+        "tbl_mst_fakultas": {
+            "old_count": 0
+        },
+        "tbl_mst_gelar": {
+            "old_count": 0
+        },
+        "tbl_mst_ikatankerja": {
+            "old_count": 0
+        },
+        "tbl_mst_jabatanakademik": {
+            "old_count": 0
+        },
+        "tbl_mst_jalurmasuk": {
+            "old_count": 0
+        },
+        "tbl_mst_jeniskeluar": {
+            "old_count": 0
+        },
+        "tbl_mst_jpdd": {
+            "old_count": 0
+        },
+        "tbl_mst_jpdd_mhs_emis": {
+            "old_count": 0
+        },
+        "tbl_mst_jpdd_ortu_emis": {
+            "old_count": 0
+        },
+        "tbl_mst_jurusan": {
+            "old_count": 0
+        },
+        "tbl_mst_matakuliah": {
+            "old_count": 0
+        },
+        "tbl_mst_matakuliah_backup": {
+            "old_count": 0
+        },
+        "tbl_mst_matakuliah_kelompok": {
+            "old_count": 0
+        },
+        "tbl_mst_matakuliah_uji": {
+            "old_count": 0
+        },
+        "tbl_mst_negara": {
+            "old_count": 0
+        },
+        "tbl_mst_negara_emis": {
+            "old_count": 0
+        },
+        "tbl_mst_pekerjaan": {
+            "old_count": 0
+        },
+        "tbl_mst_pekerjaan_ortu": {
+            "old_count": 0
+        },
+        "tbl_mst_pekerjaan_ortuemis": {
+            "old_count": 0
+        },
+        "tbl_mst_pekerjaan_sts": {
+            "old_count": 0
+        },
+        "tbl_mst_penghasilan": {
+            "old_count": 0
+        },
+        "tbl_mst_penghasilan_emis": {
+            "old_count": 0
+        },
+        "tbl_mst_pengumuman": {
+            "old_count": 0
+        },
+        "tbl_mst_prodi": {
+            "old_count": 0
+        },
+        "tbl_mst_prodi_spp": {
+            "old_count": 0
+        },
+        "tbl_mst_prodi_spp_copy": {
+            "old_count": 0
+        },
+        "tbl_mst_prodi_spp_update": {
+            "old_count": 0
+        },
+        "tbl_mst_ruangan": {
+            "old_count": 0
+        },
+        "tbl_mst_ruangan_grup": {
+            "old_count": 0
+        },
+        "tbl_mst_ruangan_jenis": {
+            "old_count": 0
+        },
+        "tbl_mst_sdm_golpang": {
+            "old_count": 0
+        },
+        "tbl_mst_sdm_jeniskp": {
+            "old_count": 0
+        },
+        "tbl_mst_statusaktivitas": {
+            "old_count": 0
+        },
+        "tbl_mst_statuskuliah": {
+            "old_count": 0
+        },
+        "tbl_mst_survey_jenis": {
+            "old_count": 0
+        },
+        "tbl_mst_survey_pertanyaan": {
+            "old_count": 0
+        },
+        "tbl_mst_user": {
+            "old_count": 0
+        },
+        "tbl_mst_user_diklat_fungsional": {
+            "old_count": 0
+        },
+        "tbl_mst_user_diklat_struktural": {
+            "old_count": 0
+        },
+        "tbl_mst_user_golpang": {
+            "old_count": 0
+        },
+        "tbl_mst_user_jabatan": {
+            "old_count": 0
+        },
+        "tbl_mst_user_jenis": {
+            "old_count": 0
+        },
+        "tbl_mst_user_jenis_group": {
+            "old_count": 0
+        },
+        "tbl_mst_user_keluarga": {
+            "old_count": 0
+        },
+        "tbl_mst_user_log": {
+            "old_count": 0
+        },
+        "tbl_mst_wilayah": {
+            "old_count": 0
+        },
+        "tbl_pembayaran_grup": {
+            "old_count": 0
+        },
+        "tbl_pembayaran_periode": {
+            "old_count": 0
+        },
+        "tbl_pmb": {
+            "old_count": 0
+        },
+        "tbl_pmb_detail": {
+            "old_count": 0
+        },
+        "tbl_pmb_mst_ruang": {
+            "old_count": 0
+        },
+        "tbl_pmb_ruangan_calon": {
+            "old_count": 0
+        },
+        "tbl_pmb_ruangan_calon_detail": {
+            "old_count": 0
+        },
+        "tbl_profil": {
+            "old_count": 0
+        },
+        "tbl_roster": {
+            "old_count": 0
+        },
+        "tbl_survey_nilai_detail": {
+            "old_count": 0
+        },
+        "tbl_survey_nilai_header": {
+            "old_count": 0
+        },
+        "tbl_sys_indikator": {
+            "old_count": 0
+        },
+        "tbl_sys_jenjangprodi": {
+            "old_count": 0
+        },
+        "tbl_ukt_jalur_penerimaan": {
+            "old_count": 0
+        },
+        "tbl_uniting": {
+            "old_count": 0
+        },
+        "tbl_uniting_detail": {
+            "old_count": 0
+        },
+        "tbl_uniting_matakuliah": {
+            "old_count": 0
+        },
+        "temp_ukt_pasca": {
+            "old_count": 0
+        },
+        "tmp_invoice_pasca": {
+            "old_count": 0
+        },
+        "tmp_nim": {
+            "old_count": 0
+        },
+        "tmp_ukt_pasca": {
+            "old_count": 0
+        },
+        "tree_data": {
+            "old_count": 0
+        },
+        "tree_struct": {
+            "old_count": 0
+        },
+        "uin_jenis_bayar": {
+            "old_count": 0
+        },
+        "uin_tb_bimbingan_skripsi": {
+            "old_count": 0
+        },
+        "uin_tb_cat_bimbingan": {
+            "old_count": 0
+        },
+        "uin_tb_isvalidberkasukt": {
+            "old_count": 0
+        },
+        "uin_tb_range_ukt": {
+            "old_count": 0
+        },
+        "uin_tb_skripsi": {
+            "old_count": 0
+        },
+        "uin_tb_ukt": {
+            "old_count": 0
+        },
+        "uin_tb_verifikasi_log": {
+            "old_count": 0
+        },
+        "uin_tbl_umum": {
+            "old_count": 0
+        },
+        "uin_user_verikator": {
+            "old_count": 0
+        },
+        "valid_ipk_mahasiswa": {
+            "old_count": 0
+        },
+        "viewDataEMIS": {
+            "old_count": 0
+        },
+        "view_roster_dosen": {
+            "old_count": 0
+        },
+        "view_wilayah": {
+            "old_count": 0
+        },
+        "view_wilayah_level_kecamatan": {
+            "old_count": 0
+        }
+    },
+    "db_koperasi": {
+        "ci_sessions": {
+            "old_count": 77
+        },
+        "tb_akun": {
+            "old_count": 2
+        },
+        "tb_anggota": {
+            "old_count": 139
+        },
+        "tb_data_agama": {
+            "old_count": 6
+        },
+        "tb_data_barang": {
+            "old_count": 0
+        },
+        "tb_data_kas": {
+            "old_count": 5
+        },
+        "tb_data_merk": {
+            "old_count": 9
+        },
+        "tb_data_pekerjaan": {
+            "old_count": 19
+        },
+        "tb_data_type": {
+            "old_count": 1
+        },
+        "tb_identitas_koperasi": {
+            "old_count": 1
+        },
+        "tb_jenis_akun": {
+            "old_count": 38
+        },
+        "tb_jenis_simpanan": {
+            "old_count": 3
+        },
+        "tb_lama_angsuran": {
+            "old_count": 6
+        },
+        "tb_mst_desa": {
+            "old_count": 83442
+        },
+        "tb_mst_kabkota": {
+            "old_count": 514
+        },
+        "tb_mst_kecamatan": {
+            "old_count": 7230
+        },
+        "tb_mst_provinsi": {
+            "old_count": 34
+        },
+        "tb_pemasukan": {
+            "old_count": 6
+        },
+        "tb_penarikan_tunai": {
+            "old_count": 0
+        },
+        "tb_pengeluaran": {
+            "old_count": 8
+        },
+        "tb_setoran_tunai": {
+            "old_count": 8
+        },
+        "tb_total_simpanan_anggota": {
+            "old_count": 8
+        },
+        "tb_transfer": {
+            "old_count": 0
+        },
+        "tb_users": {
+            "old_count": 142
+        }
+    },
+    "db_movies": {
+        "tb_daftar_film": {
+            "old_count": 7
+        },
+        "tb_detail_genre": {
+            "old_count": 22
+        },
+        "tb_detail_kategori": {
+            "old_count": 23
+        },
+        "tb_detail_pemeran": {
+            "old_count": 18
+        },
+        "tb_detail_tags": {
+            "old_count": 13
+        },
+        "tb_mst_aktor": {
+            "old_count": 4
+        },
+        "tb_mst_genre": {
+            "old_count": 5
+        },
+        "tb_mst_kategori": {
+            "old_count": 6
+        },
+        "tb_mst_tags": {
+            "old_count": 5
+        },
+        "tb_users": {
+            "old_count": 2
+        }
+    },
+    "db_penjualan": {
+        "ci_sessions": {
+            "old_count": 67
+        },
+        "tb_harga_beli": {
+            "old_count": 344
+        },
+        "tb_harga_jual": {
+            "old_count": 344
+        },
+        "tb_mst_agama": {
+            "old_count": 7
+        },
+        "tb_mst_barang": {
+            "old_count": 341
+        },
+        "tb_mst_desa": {
+            "old_count": 83442
+        },
+        "tb_mst_kabkota": {
+            "old_count": 514
+        },
+        "tb_mst_kategori_barang": {
+            "old_count": 29
+        },
+        "tb_mst_kecamatan": {
+            "old_count": 7230
+        },
+        "tb_mst_merk": {
+            "old_count": 0
+        },
+        "tb_mst_provinsi": {
+            "old_count": 34
+        },
+        "tb_mst_referensi_produk": {
+            "old_count": 60027
+        },
+        "tb_mst_sub_kategori_barang": {
+            "old_count": 424
+        },
+        "tb_mst_unit": {
+            "old_count": 6
+        },
+        "tb_pelanggan": {
+            "old_count": 139
+        },
+        "tb_pembelian": {
+            "old_count": 2
+        },
+        "tb_pembelian_detail": {
+            "old_count": 341
+        },
+        "tb_pengawas": {
+            "old_count": 4
+        },
+        "tb_penjualan": {
+            "old_count": 6
+        },
+        "tb_penjualan_detail": {
+            "old_count": 8
+        },
+        "tb_retur_pembelian": {
+            "old_count": 0
+        },
+        "tb_retur_pembelian_detail": {
+            "old_count": 0
+        },
+        "tb_retur_penjualan": {
+            "old_count": 0
+        },
+        "tb_retur_penjualan_detail": {
+            "old_count": 0
+        },
+        "tb_stok_barang": {
+            "old_count": 344
+        },
+        "tb_stok_opname": {
+            "old_count": 4
+        },
+        "tb_stok_opname_detail": {
+            "old_count": 1
+        },
+        "tb_stok_terjual": {
+            "old_count": 344
+        },
+        "tb_supplier": {
+            "old_count": 1
+        },
+        "tb_users": {
+            "old_count": 6
+        }
+    },
+    "db_simonekid": {
+        "ci_sessions": {
+            "old_count": 0
+        },
+        "country": {
+            "old_count": 239
+        },
+        "detail_dosen_usul_jabfung_sdm": {
+            "old_count": 0
+        },
+        "list_tim_pak": {
+            "old_count": 0
+        },
+        "list_usul_jabfung_sdm": {
+            "old_count": 0
+        },
+        "list_usulan_inpassing": {
+            "old_count": 0
+        },
+        "list_validasi_jabfung": {
+            "old_count": 0
+        },
+        "list_validasi_jabfung_sdm": {
+            "old_count": 0
+        },
+        "tb_anggota_sekretariat": {
+            "old_count": 340
+        },
+        "tb_anggota_tim_pak": {
+            "old_count": 2292
+        },
+        "tb_berita_acara": {
+            "old_count": 616
+        },
+        "tb_berkas_inpassing": {
+            "old_count": 324
+        },
+        "tb_berkas_jabfung": {
+            "old_count": 5155
+        },
+        "tb_bukti_butir_tambahan": {
+            "old_count": 7915
+        },
+        "tb_bukti_isian_jabfung": {
+            "old_count": 303
+        },
+        "tb_butir_tambahan": {
+            "old_count": 11463
+        },
+        "tb_catatan_rekap_analis": {
+            "old_count": 0
+        },
+        "tb_ceklist": {
+            "old_count": 113
+        },
+        "tb_dosen": {
+            "old_count": 4153
+        },
+        "tb_hitung_isian_berkas": {
+            "old_count": 0
+        },
+        "tb_info_usulan": {
+            "old_count": 1
+        },
+        "tb_isian_jabfung": {
+            "old_count": 1378
+        },
+        "tb_isian_jabfung_tambahan": {
+            "old_count": 0
+        },
+        "tb_jabfung_dosen": {
+            "old_count": 2992
+        },
+        "tb_jabfung_nilai_operator": {
+            "old_count": 1951
+        },
+        "tb_jabfung_nilai_timpak": {
+            "old_count": 483
+        },
+        "tb_jumlah_validasi_sdm": {
+            "old_count": 3
+        },
+        "tb_kesimpulan": {
+            "old_count": 160
+        },
+        "tb_kinerja_sdm": {
+            "old_count": 117
+        },
+        "tb_kredit_jumlah": {
+            "old_count": 616
+        },
+        "tb_kredit_pak_dosen_unsur_penunjang": {
+            "old_count": 19
+        },
+        "tb_kredit_pak_dosen_unsur_utama": {
+            "old_count": 19
+        },
+        "tb_kredit_pend_dan_pengajaran": {
+            "old_count": 616
+        },
+        "tb_kredit_pendidikan": {
+            "old_count": 616
+        },
+        "tb_kredit_penelitian": {
+            "old_count": 617
+        },
+        "tb_kredit_pengabdian": {
+            "old_count": 617
+        },
+        "tb_kredit_penunjang": {
+            "old_count": 617
+        },
+        "tb_lacak_usulan": {
+            "old_count": 1184
+        },
+        "tb_logs_catatan_ceklist": {
+            "old_count": 2
+        },
+        "tb_logs_catatan_unsur": {
+            "old_count": 161
+        },
+        "tb_mst_butir": {
+            "old_count": 118
+        },
+        "tb_mst_golpang": {
+            "old_count": 17
+        },
+        "tb_mst_jabfung": {
+            "old_count": 8
+        },
+        "tb_mst_jenis_sk": {
+            "old_count": 5
+        },
+        "tb_mst_kredit_minimal_jabfung_berita_acara": {
+            "old_count": 0
+        },
+        "tb_mst_periode": {
+            "old_count": 2
+        },
+        "tb_mst_prodi": {
+            "old_count": 508
+        },
+        "tb_mst_pt": {
+            "old_count": 128
+        },
+        "tb_mst_status_jabfung": {
+            "old_count": 16
+        },
+        "tb_mst_subunsur": {
+            "old_count": 40
+        },
+        "tb_mst_unsur": {
+            "old_count": 5
+        },
+        "tb_mst_usulan_inpassing": {
+            "old_count": 11
+        },
+        "tb_mst_usulan_jabfung": {
+            "old_count": 75
+        },
+        "tb_mst_usulan_jabfung_sub": {
+            "old_count": 124
+        },
+        "tb_pak_dosen": {
+            "old_count": 66
+        },
+        "tb_profile": {
+            "old_count": 1
+        },
+        "tb_rekap_analis": {
+            "old_count": 8
+        },
+        "tb_settings": {
+            "old_count": 1
+        },
+        "tb_sk": {
+            "old_count": 2
+        },
+        "tb_tim_pak": {
+            "old_count": 9
+        },
+        "tb_users": {
+            "old_count": 891
+        },
+        "tb_usulan_inpassing": {
+            "old_count": 169
+        },
+        "tb_usulan_jabfung": {
+            "old_count": 951
+        },
+        "tb_usulan_jabfung_sdm": {
+            "old_count": 231
         }
     }
 }

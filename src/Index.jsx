@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 import registerServiceWorker from "./serviceWorkerRegistration";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Modal, Container } from "react-bootstrap";
+import { Provider } from "react-redux";
+import store from "./store";
 
 import "./assets/css/style.css";
 import "./assets/css/custom.css";
@@ -65,41 +67,43 @@ const Index = () => {
 
    return (
       <React.Fragment>
-         <ModalUpdateApp {...propsModalUpdateApp} />
-         {isLoadingAppCheckUpdate ? (
-            preLoader()
-         ) : (
-            <BrowserRouter basename="/">
-               <div className="page d-flex flex-column flex-column-fluid">
-                  <Suspense fallback={<div className="header align-items-stretch">{h.placeholder()}</div>}>
-                     <LayoutHeaderBase {...propsGlobal} />
-                  </Suspense>
-                  <Container fluid id="kt_content_container" className="d-flex flex-column-fluid align-items-stretch">
-                     {h.arrLength(asideNav) && (
-                        <Suspense fallback={<div className="aside">{h.placeholder()}</div>}>
-                           <LayoutAside />
-                        </Suspense>
-                     )}
-                     <div className="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
-                        <div className="content flex-column-fluid" id="kt_content">
-                           <Suspense fallback={<div className="toolbar d-flex flex-stack flex-wrap mb-5 mb-lg-7">{h.placeholder()}</div>}>
-                              <LayoutToolbar {...propsGlobal} />
+         <Provider store={store}>
+            <ModalUpdateApp {...propsModalUpdateApp} />
+            {isLoadingAppCheckUpdate ? (
+               preLoader()
+            ) : (
+               <BrowserRouter basename="/">
+                  <div className="page d-flex flex-column flex-column-fluid">
+                     <Suspense fallback={<div className="header align-items-stretch">{h.placeholder()}</div>}>
+                        <LayoutHeaderBase {...propsGlobal} />
+                     </Suspense>
+                     <Container fluid id="kt_content_container" className="d-flex flex-column-fluid align-items-stretch">
+                        {h.arrLength(asideNav) && (
+                           <Suspense fallback={<div className="aside">{h.placeholder()}</div>}>
+                              <LayoutAside />
                            </Suspense>
-                           <div className="post" id="kt_post">
-                              <Routes>
-                                 <Route path="/" element={<Overview {...propsGlobal} />} loader={h.lazyLoadFile()} />
-                                 <Route path="database" element={<Database {...propsGlobal} />} loader={h.lazyLoadFile()} />
-                              </Routes>
+                        )}
+                        <div className="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
+                           <div className="content flex-column-fluid" id="kt_content">
+                              <Suspense fallback={<div className="toolbar d-flex flex-stack flex-wrap mb-5 mb-lg-7">{h.placeholder()}</div>}>
+                                 <LayoutToolbar {...propsGlobal} />
+                              </Suspense>
+                              <div className="post" id="kt_post">
+                                 <Routes>
+                                    <Route path="/" element={<Overview {...propsGlobal} />} loader={h.lazyLoadFile()} />
+                                    <Route path="database" element={<Database {...propsGlobal} />} loader={h.lazyLoadFile()} />
+                                 </Routes>
+                              </div>
                            </div>
+                           <Suspense fallback={<div className="footer pt-10 pb-5 d-flex flex-column flex-md-row flex-stack">{h.placeholder()}</div>}>
+                              <LayoutFooter />
+                           </Suspense>
                         </div>
-                        <Suspense fallback={<div className="footer pt-10 pb-5 d-flex flex-column flex-md-row flex-stack">{h.placeholder()}</div>}>
-                           <LayoutFooter />
-                        </Suspense>
-                     </div>
-                  </Container>
-               </div>
-            </BrowserRouter>
-         )}
+                     </Container>
+                  </div>
+               </BrowserRouter>
+            )}
+         </Provider>
       </React.Fragment>
    );
 };

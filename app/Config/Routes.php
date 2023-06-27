@@ -30,7 +30,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->group('/', function($routes) {
+$routes->group('/', function ($routes) {
    $routes->get('getdata', 'Home::getData');
    $routes->get('resetdatabase', 'Home::resetDatabase');
    $routes->get('checkappupdate', 'Home::checkAppUpdate');
@@ -42,8 +42,9 @@ $routes->group('/', function($routes) {
    $routes->post('countdatarows', 'Home::countDataRows');
    $routes->post('handlebackup', 'Home::handleBackup');
    $routes->post('hapus', 'Home::hapus');
+   $routes->post('getstructuretable', 'Home::getStructureTable');
 
-   $routes->group('database', function($routes) {
+   $routes->group('database', function ($routes) {
       $routes->get('/', 'Database::index');
       $routes->get('getdata', 'Database::getData');
       $routes->get('downloadcsvfile', 'Database::downloadCSVFile');
@@ -68,5 +69,5 @@ $routes->group('/', function($routes) {
  * needing to reload it.
  */
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+   require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

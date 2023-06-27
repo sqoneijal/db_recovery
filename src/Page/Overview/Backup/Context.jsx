@@ -1,12 +1,21 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Offcanvas } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import {
+   totalTableDB as setTotalTableDB,
+   isLoadingCountRows as set_isLoadingCountRows,
+   keyHitungDataTable as set_keyHitungDataTable,
+   detailContent as set_detailContent,
+} from "Root/action";
 
 const Lists = React.lazy(() => import("./Lists"));
 
-const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetailContent }) => {
+const Context = ({ openFormsBackup, setOpenFormsBackup }) => {
+   const { isLoadingCountRows, tableCountLoading, totalTableDB, keyHitungDataTable, detailContent } = useSelector((state) => state.action);
+   const dispatch = useDispatch();
+
    // bool
    const [isLoadingConnect, setIsLoadingConnect] = useState(true);
-   const [isLoadingCountRows, setIsLoadingCountRows] = useState(true);
    const [isLoadingBackup, setIsLoadingBackup] = useState(false);
 
    // array
@@ -16,18 +25,16 @@ const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetail
    // object
    const [downloadProgress, setDownloadProgress] = useState({});
 
-   const resetDatabase = () => {
-      h.get("/resetdatabase", true).catch((e) => {
-         h.notification(false, h.error_code_http(e.response.status), e.code);
-      });
-   };
-
    const handleClose = () => {
       setSelectedTable([]);
       setOpenFormsBackup(false);
       setIsLoadingConnect(true);
-      setDetailContent({});
+      dispatch(set_detailContent({}));
       setListTable([]);
+      dispatch(setTotalTableDB(0));
+      dispatch(set_isLoadingCountRows(true));
+      dispatch(set_keyHitungDataTable(0));
+      // dispatch(abortRequest(true));
    };
 
    const connectToDB = (formData = {}) => {
@@ -36,6 +43,7 @@ const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetail
          .then((res) => {
             const { data } = res;
             setListTable(data);
+            dispatch(setTotalTableDB(data.length));
          })
          .catch((e) => {
             h.notification(false, h.error_code_http(e.response.status), e.code);
@@ -46,9 +54,9 @@ const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetail
    };
 
    useEffect(() => {
-      h.objLength(detailContent) && connectToDB(detailContent);
+      openFormsBackup && h.objLength(detailContent) && connectToDB(detailContent);
       return () => {};
-   }, [detailContent]);
+   }, [detailContent, openFormsBackup]);
 
    const getCountRows = (value) => {
       return listTable.findIndex((e) => e.tablename === value);
@@ -122,7 +130,6 @@ const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetail
       isLoadingConnect,
       listTable,
       setListTable,
-      setIsLoadingCountRows,
       selectedTable,
       setSelectedTable,
       downloadProgress,
@@ -139,7 +146,15 @@ const Context = ({ openFormsBackup, setOpenFormsBackup, detailContent, setDetail
                   <span className="text-danger">
                      {h.parseObject(detailContent, "hostname")}@{h.parseObject(detailContent, "database")}
                   </span>{" "}
-                  ]
+                  ]{" "}
+                  {isLoadingCountRows && (
+                     <span>
+                        <span className="text-success">
+                           ({keyHitungDataTable}/{totalTableDB})
+                        </span>{" "}
+                        Menghitung jumlah data table : <span className="text-danger">{tableCountLoading}...</span>
+                     </span>
+                  )}
                </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>

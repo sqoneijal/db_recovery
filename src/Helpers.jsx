@@ -15,11 +15,20 @@ export const status_syncron = (key, progress = 0) => {
    return parseObject(config, key);
 };
 
-export const post = async (url, form = [], config = {}, dynamic = false) => {
+export const post = async (url, form = [], config = {}, dynamic = false, abortRequest = false) => {
+   const controller = new AbortController();
+
    let formData = new FormData();
 
    parseObject(window.user, "username") && formData.append("user_modified", window.user.username);
    Object.keys(form).map((data) => formData.append(data, form[data]));
+
+   if (abortRequest) {
+      Object.assign(config, {
+         signal: controller.signal,
+      });
+      controller.abort();
+   }
 
    axios.create();
    axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";

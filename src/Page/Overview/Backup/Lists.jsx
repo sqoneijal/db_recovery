@@ -1,17 +1,12 @@
 import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { isLoadingCountRows, tableCountLoading, keyHitungDataTable } from "Root/action";
 
-const Lists = ({
-   isLoadingConnect,
-   listTable,
-   setListTable,
-   setIsLoadingCountRows,
-   selectedTable,
-   setSelectedTable,
-   downloadProgress,
-   isLoadingBackup,
-   detailContent,
-}) => {
+const Lists = ({ isLoadingConnect, listTable, setListTable, selectedTable, setSelectedTable, downloadProgress, isLoadingBackup, detailContent }) => {
+   const { abortRequest } = useSelector((state) => state.action);
+   const dispatch = useDispatch();
+
    const countDataRows = (listTable, key) => {
       if (typeof listTable[key] !== "undefined") {
          let formData = {
@@ -25,7 +20,9 @@ const Lists = ({
             port: detailContent.port,
          };
 
-         h.post("/countdatarows", formData, {}, true)
+         dispatch(tableCountLoading(listTable[key].tablename));
+         dispatch(keyHitungDataTable(key + 1));
+         h.post("/countdatarows", formData, {}, true, abortRequest)
             .then((res) => {
                const { data } = res;
                if (data.next) {
@@ -42,10 +39,11 @@ const Lists = ({
                }
             })
             .catch((e) => {
-               h.notification(false, h.error_code_http(e.response.status), e.code);
+               countDataRows(listTable, key);
             });
       } else {
-         setIsLoadingCountRows(false);
+         dispatch(isLoadingCountRows(false));
+         dispatch(tableCountLoading(""));
       }
    };
 

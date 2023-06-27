@@ -1,21 +1,23 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Card, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudArrowDown, faEye, faEyeSlash, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCloudArrowDown, faEye, faEyeSlash, faTrashAlt, faFolderTree } from "@fortawesome/free-solid-svg-icons";
 import * as bootstrap from "bootstrap";
+import { useDispatch } from "react-redux";
+import { openBackupStructure, detailContent } from "Root/action";
 
 const Backup = React.lazy(() => import("./Backup/Context"));
+const BackupStructure = React.lazy(() => import("./BackupStructure/Context"));
 
 const Lists = ({ refreshTable, setRefreshTable }) => {
+   const dispatch = useDispatch();
+
    // bool
    const [isLoading, setIsLoading] = useState(true);
    const [openFormsBackup, setOpenFormsBackup] = useState(false);
 
    // array
    const [listContent, setListContent] = useState([]);
-
-   // object
-   const [detailContent, setDetailContent] = useState({});
 
    // string
    const [show_pass, setShow_pass] = useState("");
@@ -61,12 +63,13 @@ const Lists = ({ refreshTable, setRefreshTable }) => {
       return () => {};
    }, []);
 
-   const propsBackup = { openFormsBackup, setOpenFormsBackup, detailContent, setDetailContent };
+   const propsBackup = { openFormsBackup, setOpenFormsBackup };
 
    return (
       <React.Fragment>
          <Suspense fallback={h.lazyLoadFile()}>
             <Backup {...propsBackup} />
+            <BackupStructure />
          </Suspense>
          <Card className="shadow-sm">
             <Card.Body>
@@ -134,10 +137,23 @@ const Lists = ({ refreshTable, setRefreshTable }) => {
                                          style={{ marginRight: 10 }}
                                          onClick={(e) => {
                                             e.preventDefault();
-                                            setDetailContent(row);
+                                            dispatch(detailContent(row));
                                             setOpenFormsBackup(true);
                                          }}>
                                          <FontAwesomeIcon icon={faCloudArrowDown} />
+                                      </a>
+                                      <a
+                                         href="#"
+                                         data-bs-title="Backup table structure"
+                                         data-bs-toggle="tooltip"
+                                         className="btn btn-active-icon-success btn-active-text-success btn-sm p-0"
+                                         style={{ marginRight: 10 }}
+                                         onClick={(e) => {
+                                            e.preventDefault();
+                                            dispatch(openBackupStructure(true));
+                                            dispatch(detailContent(row));
+                                         }}>
+                                         <FontAwesomeIcon icon={faFolderTree} />
                                       </a>
                                       <a
                                          href="#"
