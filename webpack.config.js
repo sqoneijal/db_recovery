@@ -6,7 +6,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const { InjectManifest } = require("workbox-webpack-plugin");
 
 module.exports = (env) => {
    let common_plugins = [
@@ -21,15 +20,7 @@ module.exports = (env) => {
       }),
    ];
 
-   let prod_plugins = [
-      new CleanWebpackPlugin(),
-      new InjectManifest({
-         swSrc: "./src/src-sw.js",
-         swDest: "sw.js",
-      }),
-      new TerserPlugin(),
-      new WebpackManifestPlugin(),
-   ];
+   let prod_plugins = [new CleanWebpackPlugin(), new TerserPlugin(), new WebpackManifestPlugin()];
 
    let config = {
       mode: env.NODE_ENV,
