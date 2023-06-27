@@ -62,14 +62,6 @@ class Home extends BaseController
 
    public function index()
    {
-      $path = file_get_contents(set_realpath(ROOTPATH . 'public/thunder.json'));
-      $data = json_decode($path, true);
-
-      echo '<pre>';
-      echo count($data['data']);
-      echo '</pre>';
-      die();
-
       $this->data = [
          'title' => 'Overview'
       ];
